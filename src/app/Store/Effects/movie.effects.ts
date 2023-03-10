@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { createEffect, Actions, ofType } from "@ngrx/effects";
+// import { create } from "domain";
 import { EmptyError } from "rxjs";
 import { catchError, exhaustMap,map,concatMap,tap } from "rxjs/operators";
 import { DataService } from "src/app/Service/data.service";
-import { getMovies,addMoviesSuccess,addMovies, getMoviesSuccess } from "../Actions/movie.action";
+import { getMovies,addMoviesSuccess,addMovies, getMoviesSuccess, deleteMovie } from "../Actions/movie.action";
 
 @Injectable()
 export class MovieEffects{
@@ -29,6 +30,13 @@ this.action$.pipe(
     )
     )
 ))
+
+// deleteMovies$ = createEffect(()=>
+// this.action$.pipe(
+//     ofType(deleteMovie),
+//     tap((movie)=>console.log(movie)),
+//     mergeMap(({movie})=>)
+// ))
 
 constructor(private action$:Actions, private dataService:DataService){
 }
