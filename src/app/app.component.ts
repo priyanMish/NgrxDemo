@@ -3,16 +3,20 @@ import { Store } from '@ngrx/store';
 import { Movie } from './Models/movie';
 import { DataService } from './Service/data.service';
 import { addMovies, getMovies }  from "./Store/Actions/movie.action"
+import * as L from 'leaflet';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent implements OnInit {
   movies: Movie[] = [];
   newMovie: Movie = new Movie();
   title = 'movieApp';
+ 
   constructor(private dataService: DataService, private store: Store) {}
 
   ngOnInit(): void {

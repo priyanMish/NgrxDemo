@@ -16,11 +16,12 @@ import { movieReducer } from './Store/Reducers/movie.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MovieEffects } from './Store/Effects/movie.effects';
+import { MapleafLetComponent } from './mapleaf-let/mapleaf-let.component';
 // import { movieReducer } from './Store/Reducers/movie.reducers';
 // import { reducers, metaReducers } from './reducers';
 
 @NgModule({
-  declarations: [AppComponent, MovieListComponent],
+  declarations: [AppComponent, MovieListComponent, MapleafLetComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
