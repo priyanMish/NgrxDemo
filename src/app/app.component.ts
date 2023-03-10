@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Movie } from './Models/movie';
 import { DataService } from './Service/data.service';
-import { addMovies, getMovies } from './Store/Actions/movie.action';
+import { addMovies, getMovies }  from "./Store/Actions/movie.action"
 
 @Component({
   selector: 'app-root',
@@ -28,9 +28,9 @@ export class AppComponent implements OnInit {
 
   addNewMovies(): void {
     this.store.dispatch(addMovies(this.newMovie));
-    this.dataService.addMovies(this.newMovie).subscribe((res) => {
-      this.getAllMovies();
-      this.newMovie = new Movie();
-    });
+    // this.dataService.addMovies(this.newMovie).subscribe((res) => {
+    //   this.getAllMovies();
+    //   this.newMovie = new Movie();
+    // });
   }
 }

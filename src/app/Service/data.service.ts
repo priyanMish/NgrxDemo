@@ -21,7 +21,6 @@ export class DataService {
   }
 
   addMovies(movie: Movie): Observable<Movie> {
-    movie.id = null;
     return this.http.post<Movie>(this.url, movie).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error(error);
