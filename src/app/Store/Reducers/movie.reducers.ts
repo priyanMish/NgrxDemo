@@ -6,6 +6,7 @@ import { addMovies, deleteMovie, getMovies,getMoviesSuccess,addMoviesSuccess } f
 
 export interface MovieState{
     movies: ReadonlyArray<Movie>
+    user:Readonly<String>
 }
 
  const initialState: ReadonlyArray<Movie>=[];
