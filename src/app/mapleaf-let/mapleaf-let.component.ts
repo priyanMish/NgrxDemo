@@ -1,12 +1,31 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import { MarkerService } from '../Service/marker.service';
+import { MarkerService2 } from '../marker2.service';
+
+
+
+const iconRetinaUrl = "../../assets/marker-icon-2x.png";
+const iconUrl = '../../assets/marker-icon.png';
+const shadowUrl = '../../assets/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = iconDefault;
 
 @Component({
   selector: 'app-mapleaf-let',
   templateUrl: './mapleaf-let.component.html',
   styleUrls: ['./mapleaf-let.component.css']
 })
-export class MapleafLetComponent implements OnInit,AfterViewInit {
+export class MapleafLetComponent implements AfterViewInit {
   // map = L.map('map').setView([51.505, -0.09], 13);
   private map:any;
   
@@ -25,12 +44,17 @@ export class MapleafLetComponent implements OnInit,AfterViewInit {
 
     tiles.addTo(this.map);
   }
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private markerService:MarkerService, private markerService2:MarkerService2) { }
+//  ngOnInit(): void {
+//   // this.markerService.makeCircle().subscribe((res)=>console.log(res,"init"))
+//   this.markerService2.makeCircle().subscribe((res)=>console.log(res,"init2"))
+//  }
   ngAfterViewInit(): void {
     this.initMap();
+    this.markerService2.makeCapitalMarkers(this.map)
+    // console.log("hello")
+    // this.markerService.makeCircle().subscribe((res)=>console.log(res,"init"))
+    this.markerService2.makeCircle().subscribe((res)=>console.log(res,"init2"))
   }
 
 }

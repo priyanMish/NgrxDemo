@@ -17,6 +17,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MovieEffects } from './Store/Effects/movie.effects';
 import { MapleafLetComponent } from './mapleaf-let/mapleaf-let.component';
+import {MarkerService} from './Service/marker.service'
+import { MarkerService2 } from './marker2.service';
 // import { movieReducer } from './Store/Reducers/movie.reducers';
 // import { reducers, metaReducers } from './reducers';
 
@@ -34,7 +36,7 @@ import { MapleafLetComponent } from './mapleaf-let/mapleaf-let.component';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([MovieEffects]),
   ],
-  providers: [],
+  providers: [MarkerService,MarkerService2],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
