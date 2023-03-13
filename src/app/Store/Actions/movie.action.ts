@@ -14,3 +14,4 @@ export const addMoviesSuccess = createAction("[Movie] Add Movie Success",(movie:
 
 export const deleteMovie = createAction('[Movie] Delete Movie',props<{movie:Movie}>())
 export const deleteMovieSuccess = createAction('[Movie] Delete Movie Success' ,props<{movie:Movie}>())
+export const changeUser = createAction('[Movie] Change User', props<{user:string}>())
