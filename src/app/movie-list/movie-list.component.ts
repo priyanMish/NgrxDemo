@@ -4,7 +4,7 @@ import { DataService } from '../Service/data.service';
 import { MovieState } from '../Store/Reducers/movie.reducers';
 import { Store,select } from '@ngrx/store';
 import { deleteMovie } from '../Store/Actions/movie.action';
-import { movieSelector , movieUserSelector} from '../Store/Selector/movie.selector';
+import { movieSelector , movieUserSelector,movieExpenseSelector} from '../Store/Selector/movie.selector';
 
 @Component({
   selector: 'app-movie-list',
@@ -16,7 +16,7 @@ export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
 
   // movies$ = this.store.select('movies')
-  movies$ = this.store.pipe(select(movieUserSelector))
+  movies$ = this.store.pipe(select(movieExpenseSelector))
   constructor(private dataService: DataService,  private store:Store<MovieState>) {}
 
   ngOnInit(): void {}

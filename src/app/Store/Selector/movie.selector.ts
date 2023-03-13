@@ -22,3 +22,16 @@ export const movieUserSelector = createSelector(
     } 
     
 )
+
+
+export const movieExpenseSelector = createSelector(
+    (state:MovieState)=> state.movies,
+    (state:MovieState)=> {
+       console.log(state.user, "StateUSer")
+       return state.user},
+    (movies:ReadonlyArray<Movie>,user:Readonly<String>)=>{
+            console.log(movies)
+            return movies.filter((movie: Movie) => movie?.earning > 2000);
+    } 
+    
+)
